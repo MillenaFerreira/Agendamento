@@ -10,35 +10,43 @@ public class PlanoDeSaude {
 	private String numero;
 	private LocalDate Validade;
 	
+	//metodos
 	public void setOperadora(String operadora) {
 		this.operadora = operadora;
 	}
 	public String getOperadora() {
 		return operadora;
 	}
+	
+	
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 	public String getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+	
+	
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 	public String getNumero() {
 		return numero;
 	}
-	public void setNumero(String numero) {
-		this.numero = numero;
+	
+	
+	public void setValidade(LocalDate validade) {
+		Validade = validade;
 	}
 	public LocalDate getValidade() {
 		return Validade;
 	}
-	public void setValidade(LocalDate validade) {
-		Validade = validade;
-	}
+	
 	
 	
 	
 		
-	}
+	
 	
 	
 	

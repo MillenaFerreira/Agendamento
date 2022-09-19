@@ -34,18 +34,5 @@ public class Especialidade {
 		return descricao;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
