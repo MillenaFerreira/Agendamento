@@ -8,6 +8,23 @@ public class Especialidade {
 	private String nome;
 	private String descricao;
 	
+	//Construtores da classe
+	public Especialidade(String nome) {
+		this.nome = nome;
+//		JOptionPane.showMessageDialog(null, "Oie!!! Eu sou o construtor!");
+		
+	}
+	public Especialidade(String nome, String descricao) {
+		this.nome = nome;
+		this.descricao = descricao;
+	}
+	
+	public Especialidade() {
+		
+	}
+	
+	
+	
 	//metodos de acesso aos atributos
 	public void setNome(String nome) {
 		if(nome.length() >= 3) {
