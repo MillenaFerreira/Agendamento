@@ -9,6 +9,19 @@ public class PlanoDeSaude {
 	private String categoria;
 	private String numero;
 	private LocalDate Validade;
+	private static int quantidade; //1 porque cada objeto tem sua própria quantidade
+//	private int quantidade; //3 
+	
+	
+	//construtor
+	public PlanoDeSaude (String operadora) {
+		this.operadora = operadora;
+		this.quantidade++;
+	}
+	
+	public PlanoDeSaude () {
+		this.quantidade++;
+	}
 	
 	//metodos
 	public void setOperadora(String operadora) {
@@ -43,6 +56,11 @@ public class PlanoDeSaude {
 	}
 	
 	
+	//não é necessario o set porque ele vai usar o Plano de saude
+	//public int getQuantidade()
+	public static int getQuantidade() {
+		return quantidade;
+	}
 	
 	
 		

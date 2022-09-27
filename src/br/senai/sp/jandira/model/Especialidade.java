@@ -19,8 +19,8 @@ public class Especialidade {
 		this.descricao = descricao;
 	}
 	
-	public Especialidade() {
-		
+	public Especialidade() { //Contrutor Default (padrão)
+//		JOptionPane.showMessageDialog(null, "Utilizando o construtor default!!");
 	}
 	
 	

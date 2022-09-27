@@ -10,7 +10,7 @@ public class TesteWrappers {
 		
 		int a = 5;
 		
-		Integer b = 5;
+		Integer b = 5; //wrap = embrulhar, empacotar, envolver.
 		
 		
 		Double x = 2.9;
@@ -53,6 +53,7 @@ public class TesteWrappers {
 		
 		System.out.println(especialidades.size());
 		
+		//ArrayList<int> notas = new ArrayList<>(); isso não funcionará porque ele é um tipo primitivo
 		ArrayList<Integer> notas = new ArrayList<>();
 		
 		notas.add(50);
