@@ -13,8 +13,7 @@ public class Especialidade {
     //Construtores da classe
     public Especialidade(String nome) {
         this.nome = nome;
-        this.contador++;
-        this.codigo = contador;
+        gerarCodigo();
 //      JOptionPane.showMessageDialog(null, "Oie!!! Eu sou o construtor!");
 
     }
@@ -22,16 +21,20 @@ public class Especialidade {
     public Especialidade(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
-        this.contador++;
-        this.codigo = contador;
+        gerarCodigo();
     }
 
     public Especialidade() { //Contrutor Default (padrão)
-        this.contador++;
-        this.codigo = contador;
+        gerarCodigo();
 //      JOptionPane.showMessageDialog(null, "Utilizando o construtor default!!");
     }
 
+    private void gerarCodigo(){
+        this.contador++;
+        this.codigo = contador;
+    }
+    
+    
     //metodos de acesso aos atributos
 
     public int getContador() {
