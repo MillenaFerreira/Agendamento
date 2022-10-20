@@ -6,6 +6,7 @@ package br.senai.sp.jandira.ui;
 
 import br.senai.sp.jandira.dao.EspecialidadeDAO;
 import br.senai.sp.jandira.model.Especialidade;
+import br.senai.sp.jandira.model.OperacaoEnum;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
@@ -13,41 +14,61 @@ import javax.swing.JOptionPane;
 public class EspecialidadesDialog extends javax.swing.JDialog {
 
     
-    Especialidade especialidade;
+    private Especialidade especialidade;
+    private OperacaoEnum operacao;
     
+    //novo
     public EspecialidadesDialog(
             java.awt.Frame parent,
-            boolean modal) {
+            boolean modal,
+            OperacaoEnum operacao) {
         
         super(parent, modal);
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/senai/sp/jandira/imagens/agenda.png")));
+        this.operacao = operacao;
+        preencherTitulo();
     }
 
   //exclusivo do editar
     public EspecialidadesDialog(
             java.awt.Frame parent,
             boolean modal,
-            Especialidade e) {
+            Especialidade e,
+            OperacaoEnum operacao) {
         
         super(parent, modal);
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/senai/sp/jandira/imagens/agenda.png")));
         
         especialidade = e;
+        this.operacao = operacao;
         
         preencherFormulario();
+        preencherTitulo();
+        
     }
     
     private void preencherFormulario(){
-        labelTitulo.setText(" Especialidades - EDITAR");
-        labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/editar.png")));
+        
         textFieldCodigoEspecialidade.setText(especialidade.getCodigo().toString());
         textFieldNomeDaEspecialidade.setText(especialidade.getNome());
         textFieldDescriçãoEspecialidade.setText(especialidade.getDescricao());
         
     }
- //----------------------   
+ //----------------------  
+    
+    private void preencherTitulo() {
+        labelTitulo.setText(" Especialidades - " + operacao);
+        
+        if(operacao == OperacaoEnum.EDITAR){
+          labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/editar.png")));  
+        }else{
+          labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/adicionar.png")));
+        }
+        
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -168,6 +189,16 @@ public class EspecialidadesDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_buttonCancelarActionPerformed
 
     private void buttonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalvarActionPerformed
+        
+        if (operacao == OperacaoEnum.ADICIONAR){
+            adicionar();
+        }else{
+            editar();
+        }
+        
+    }//GEN-LAST:event_buttonSalvarActionPerformed
+
+    private void adicionar(){
         //Criar um objeto especialidade
         Especialidade novaEspecialidade = new Especialidade();
         novaEspecialidade.setNome(textFieldNomeDaEspecialidade.getText());
@@ -183,47 +214,23 @@ public class EspecialidadesDialog extends javax.swing.JDialog {
                 JOptionPane.INFORMATION_MESSAGE);
         
         dispose(); 
-    }//GEN-LAST:event_buttonSalvarActionPerformed
-
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EspecialidadesDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EspecialidadesDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EspecialidadesDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EspecialidadesDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                EspecialidadesDialog dialog = new EspecialidadesDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
     }
 
+    private void editar(){
+        
+        especialidade.setNome(textFieldNomeDaEspecialidade.getText());
+        especialidade.setDescricao(textFieldDescriçãoEspecialidade.getText());
+        
+        EspecialidadeDAO.atualizar(especialidade);
+        
+        JOptionPane.showMessageDialog(
+                null, 
+                "Especialidade atualizada com sucesso!1", 
+                "Especialidades", 
+                JOptionPane.INFORMATION_MESSAGE);
+        
+        dispose();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCancelar;
     private javax.swing.JButton buttonSalvar;
