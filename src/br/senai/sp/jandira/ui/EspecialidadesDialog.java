@@ -225,7 +225,7 @@ public class EspecialidadesDialog extends javax.swing.JDialog {
         
         JOptionPane.showMessageDialog(
                 null, 
-                "Especialidade atualizada com sucesso!1", 
+                "Especialidade atualizada com sucesso!", 
                 "Especialidades", 
                 JOptionPane.INFORMATION_MESSAGE);
         

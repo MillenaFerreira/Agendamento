@@ -15,6 +15,7 @@ public class HomeFrame extends javax.swing.JFrame {
         
     //Atributos da classe
     PanelEspecialidades panelEspecialidades;
+    PanelPlanoDeSaude panelPlanoDeSaude;
     
     //Constantes
     private final int POS_X = 10;
@@ -133,6 +134,11 @@ public class HomeFrame extends javax.swing.JFrame {
 
         buttonPlanoDeSaude.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/PlanoDeSaude.png"))); // NOI18N
         buttonPlanoDeSaude.setToolTipText("Planos de Saúde");
+        buttonPlanoDeSaude.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPlanoDeSaudeActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonPlanoDeSaude);
         buttonPlanoDeSaude.setBounds(560, 90, 90, 40);
 
@@ -193,6 +199,7 @@ public class HomeFrame extends javax.swing.JFrame {
     private void buttonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHomeActionPerformed
         
         panelEspecialidades.setVisible(false);
+        panelPlanoDeSaude.setVisible(false);
         panelHome.setVisible(true);
         
     }//GEN-LAST:event_buttonHomeActionPerformed
@@ -219,6 +226,13 @@ public class HomeFrame extends javax.swing.JFrame {
     private void buttonAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAgendaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonAgendaActionPerformed
+
+    private void buttonPlanoDeSaudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlanoDeSaudeActionPerformed
+
+        panelPlanoDeSaude.setVisible(true);
+        panelHome.setVisible(false);
+        
+    }//GEN-LAST:event_buttonPlanoDeSaudeActionPerformed
 
     
 
@@ -256,6 +270,16 @@ public class HomeFrame extends javax.swing.JFrame {
        );
         getContentPane().add(panelEspecialidades);
         panelEspecialidades.setVisible(false);
+        
+        
+        panelPlanoDeSaude = new PanelPlanoDeSaude();
+        panelPlanoDeSaude.setBounds(
+                POS_X, 
+                POS_Y, 
+                LARGURA, 
+                ALTURA);
+        getContentPane().add(panelPlanoDeSaude);
+        panelPlanoDeSaude.setVisible(false);
     }
 
 

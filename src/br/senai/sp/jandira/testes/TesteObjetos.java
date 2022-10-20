@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import br.senai.sp.jandira.AgendaApp;
 import br.senai.sp.jandira.dao.EspecialidadeDAO;
+import br.senai.sp.jandira.dao.PlanoDeSaudeDAO;
 import br.senai.sp.jandira.model.Especialidade;
 import br.senai.sp.jandira.model.PlanoDeSaude;
 
@@ -159,35 +160,51 @@ public class TesteObjetos {
         for (Especialidade e : especialidade) {
             System.out.println(e.getNome());
         }
+//        System.out.println("--------------------------");
+//        //Criar 3 planos de saude, armazenar em um arraylist
+//        // e exibir o nome da operadora de cada um deles
+//        //usando for each
+//        PlanoDeSaude p1 = new PlanoDeSaude("Amil");
+//        PlanoDeSaude p2 = new PlanoDeSaude("Bradesco");
+//        PlanoDeSaude p3 = new PlanoDeSaude("Notredame");
+//
+//        ArrayList<PlanoDeSaude> planosDeSaude = new ArrayList<>();
+//        planosDeSaude.add(p1);
+//        planosDeSaude.add(p2);
+//        planosDeSaude.add(p3);
+//
+//        System.out.println("*******Plano de Saúde**********");
+//        for (PlanoDeSaude p : planosDeSaude) {
+////            System.out.println(p.getOperadora());
+////            System.out.println(p.getQuantidade());
+//        }
+//
+//        PlanoDeSaude xpto1 = new PlanoDeSaude();
+//        PlanoDeSaude xpto2 = new PlanoDeSaude();
+//        PlanoDeSaude xpto3 = new PlanoDeSaude();
+//
+////        System.out.println("-----" + PlanoDeSaude.getQuantidade());
+////	System.out.println("-----" + p1.getQuantidade());
+//
+//        AgendaApp.main(args);
+//
+////        System.out.println("-----" + PlanoDeSaude.getQuantidade());
 
-        //Criar 3 planos de saude, armazenar em um arraylist
-        // e exibir o nome da operadora de cada um deles
-        //usando for each
-        PlanoDeSaude p1 = new PlanoDeSaude("Amil");
-        PlanoDeSaude p2 = new PlanoDeSaude("Bradesco");
-        PlanoDeSaude p3 = new PlanoDeSaude("Notredame");
+        System.out.println("----------------------------------");
+        PlanoDeSaudeDAO.criarListaDePlanoDeSaude();
+        
+        
 
-        ArrayList<PlanoDeSaude> planosDeSaude = new ArrayList<>();
-        planosDeSaude.add(p1);
-        planosDeSaude.add(p2);
-        planosDeSaude.add(p3);
 
-        System.out.println("*******Plano de Saúde**********");
-        for (PlanoDeSaude p : planosDeSaude) {
-            System.out.println(p.getOperadora());
-            System.out.println(p.getQuantidade());
-        }
 
-        PlanoDeSaude xpto1 = new PlanoDeSaude();
-        PlanoDeSaude xpto2 = new PlanoDeSaude();
-        PlanoDeSaude xpto3 = new PlanoDeSaude();
 
-        System.out.println("-----" + PlanoDeSaude.getQuantidade());
-//	System.out.println("-----" + p1.getQuantidade());
 
-        AgendaApp.main(args);
 
-        System.out.println("-----" + PlanoDeSaude.getQuantidade());
+
+
+
+
+
 
     }
 

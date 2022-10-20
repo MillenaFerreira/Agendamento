@@ -7,22 +7,22 @@ public class PlanoDeSaude {
 	//atributos
 	private String operadora;
 	private String categoria;
-	private String numero;
+	private String numeroDaCarteira;
 	private LocalDate Validade;
-	private static int quantidade; //1 porque cada objeto tem sua própria quantidade
+//	private static int quantidade; //1 porque cada objeto tem sua própria quantidade
 //	private int quantidade; //3 
 	
 	
 	//construtor
-	public PlanoDeSaude (String operadora) {
-		this.operadora = operadora;
-		this.quantidade++;
+	public PlanoDeSaude (String numeroDaCarteira) {
+            this.numeroDaCarteira = numeroDaCarteira;
 	}
 	
 	public PlanoDeSaude () {
-		this.quantidade++;
+		
 	}
 	
+        
 	//metodos
 	public void setOperadora(String operadora) {
 		this.operadora = operadora;
@@ -40,11 +40,11 @@ public class PlanoDeSaude {
 	}
 	
 	
-	public void setNumero(String numero) {
-		this.numero = numero;
+	public void setNumeroDaCarteira(String numero) {
+		this.numeroDaCarteira = numeroDaCarteira;
 	}
-	public String getNumero() {
-		return numero;
+	public String getNumeroDaCarteira() {
+		return numeroDaCarteira;
 	}
 	
 	
@@ -58,9 +58,9 @@ public class PlanoDeSaude {
 	
 	//não é necessario o set porque ele vai usar o Plano de saude
 	//public int getQuantidade()
-	public static int getQuantidade() {
-		return quantidade;
-	}
+//	public static int getQuantidade() {
+//		return quantidade;
+//	}
 	
 	
 		
