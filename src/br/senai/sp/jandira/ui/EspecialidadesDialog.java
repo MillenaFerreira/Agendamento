@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
+
 package br.senai.sp.jandira.ui;
 
 import br.senai.sp.jandira.dao.EspecialidadeDAO;
@@ -108,7 +105,7 @@ public class EspecialidadesDialog extends javax.swing.JDialog {
         labelCodigoEspecialidade.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         labelCodigoEspecialidade.setText("Código :");
         jPanel2.add(labelCodigoEspecialidade);
-        labelCodigoEspecialidade.setBounds(30, 40, 50, 16);
+        labelCodigoEspecialidade.setBounds(30, 40, 60, 16);
 
         textFieldCodigoEspecialidade.setEditable(false);
         textFieldCodigoEspecialidade.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +194,8 @@ public class EspecialidadesDialog extends javax.swing.JDialog {
         }
         
     }//GEN-LAST:event_buttonSalvarActionPerformed
-
+//dando erro pq a validade ainda não está sendo chamada por um "textfield" então vai dar errado
+    //fazer isso na proxima aula e fazer o botão editar
     private void adicionar(){
         //Criar um objeto especialidade
         Especialidade novaEspecialidade = new Especialidade();

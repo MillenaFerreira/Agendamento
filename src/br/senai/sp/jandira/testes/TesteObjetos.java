@@ -194,7 +194,7 @@ public class TesteObjetos {
         PlanoDeSaudeDAO.criarListaDePlanoDeSaude();
         
         
-
+        System.out.println(PlanoDeSaudeDAO.getTabelaPlanoDeSaude());
 
 
 

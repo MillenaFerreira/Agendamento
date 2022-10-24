@@ -228,7 +228,7 @@ public class HomeFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAgendaActionPerformed
 
     private void buttonPlanoDeSaudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlanoDeSaudeActionPerformed
-
+        panelEspecialidades.setVisible(false);
         panelPlanoDeSaude.setVisible(true);
         panelHome.setVisible(false);
         
