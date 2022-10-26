@@ -6,6 +6,7 @@ package br.senai.sp.jandira.ui;
 
 import br.senai.sp.jandira.dao.PlanoDeSaudeDAO;
 import br.senai.sp.jandira.model.OperacaoEnum;
+import br.senai.sp.jandira.model.PlanoDeSaude;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
@@ -127,7 +128,8 @@ public class PanelPlanoDeSaude extends javax.swing.JPanel {
         PlanoDeSaudeDialog planoDeSaude = 
                 new PlanoDeSaudeDialog(
                 null, 
-                true);
+                true,
+                OperacaoEnum.ADICIONAR);
         
         planoDeSaude.setVisible(true);
         
@@ -135,10 +137,33 @@ public class PanelPlanoDeSaude extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonNovaPlanoDeSaudeActionPerformed
 
     private void buttonEditarPlanoDeSaudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditarPlanoDeSaudeActionPerformed
-
+        
+        if(getLinha() != -1){
+            editarPlanoDeSaude();    
+        }else{
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "Por favor, selecione um Plano de Saúde que você deseja EDITAR",
+                    "Especialidades",
+                    JOptionPane.WARNING_MESSAGE);
+        }
 
     }//GEN-LAST:event_buttonEditarPlanoDeSaudeActionPerformed
-
+    private void editarPlanoDeSaude(){
+        
+        PlanoDeSaude planoDeSaude = PlanoDeSaudeDAO.getPlanoDeSaude(getNumero());
+        
+        PlanoDeSaudeDialog planoDeSaudeDialog = 
+                new PlanoDeSaudeDialog(
+                        null, 
+                        true,
+                        planoDeSaude,
+                        OperacaoEnum.EDITAR);
+        
+       planoDeSaudeDialog.setVisible(true);
+       preencherTabela();
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonEditarPlanoDeSaude;

@@ -3,6 +3,7 @@ package br.senai.sp.jandira.dao;
 
 import br.senai.sp.jandira.model.PlanoDeSaude;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -82,7 +83,8 @@ public class PlanoDeSaudeDAO {
             
             dados[i][0] = p.getNumeroDaCarteira();
             dados[i][1] = p.getOperadora();
-            dados[i][2] = p.getValidade().toString();
+            DateTimeFormatter barra = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            dados[i][2] = p.getValidade().format(barra);
             dados[i][3] = p.getCategoria();
 
             i++;
