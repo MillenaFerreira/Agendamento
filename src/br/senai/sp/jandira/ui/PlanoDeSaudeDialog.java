@@ -196,12 +196,32 @@ public class PlanoDeSaudeDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_textFieldNomeDaOperadoraActionPerformed
 
     private void buttonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalvarActionPerformed
-
-        if (operacao == OperacaoEnum.ADICIONAR){
-            adicionar();
-        }else {
-            editar();
+        
+        CharSequence s = " ";
+        
+        if(textFieldNumeroPlanoDeSaude.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "POR FAVOR !!! Digite o Número da sua carteira");
+            textFieldNumeroPlanoDeSaude.requestFocus();
+        }else if(textFieldNomeDaOperadora.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "POR FAVOR !!! Digite o nome da Operadora");
+            textFieldNomeDaOperadora.requestFocus();
+        }else if(textFieldCategoriaPlanoDeSaude.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "POR FAVOR !!! Digite o nome da Categoria");
+            textFieldCategoriaPlanoDeSaude.requestFocus();
+        }else if(formattedTextFieldValidade.getText().contains(s) == true){
+            JOptionPane.showMessageDialog(this, "POR FAVOR !!! Digite uma data correta");
+            formattedTextFieldValidade.requestFocus();
+        } else {
+            if (operacao == OperacaoEnum.ADICIONAR){
+                adicionar();
+            }else {
+                editar();
+            }
         }
+        
+        
+        
+        
 
     }//GEN-LAST:event_buttonSalvarActionPerformed
     
