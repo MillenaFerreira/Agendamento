@@ -29,6 +29,13 @@ public class Especialidade {
 //      JOptionPane.showMessageDialog(null, "Utilizando o construtor default!!");
     }
 
+    public Especialidade(String nome, String descricao, Integer codigo) { 
+        this.nome = nome;
+        this.descricao = descricao;
+        this.codigo = codigo;
+        this.contador = codigo;
+    }
+    
     private void gerarCodigo(){
         this.contador++;
         this.codigo = contador;
@@ -76,6 +83,10 @@ public class Especialidade {
 
     public String getDescricao() {
         return descricao;
+    }
+    
+    public String getEspecialidadeSepadaradaPorPontoEVirgula(){
+        return this.codigo + ";" + this.nome + ";" + this.descricao;
     }
 
 }

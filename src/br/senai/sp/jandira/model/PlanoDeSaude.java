@@ -19,7 +19,7 @@ public class PlanoDeSaude {
         this.operadora = operadora;
         this.validade = validade;
     }
-
+    
     public PlanoDeSaude() {
 
     }
@@ -62,4 +62,8 @@ public class PlanoDeSaude {
 //	public static int getQuantidade() {
 //		return quantidade;
 //	}
+    
+    public String getPlanoDeSaudeSeparadaPorPontoEVirgula(){
+        return this.numeroDaCarteira + ";" + this.categoria + ";" + this.operadora + ";" + this.validade;
+    }
 }
