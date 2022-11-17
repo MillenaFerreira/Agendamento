@@ -4,6 +4,7 @@ package br.senai.sp.jandira.dao;
 import br.senai.sp.jandira.model.PlanoDeSaude;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,6 +21,9 @@ public class PlanoDeSaudeDAO {
     
     private final static String URL = "C:\\Users\\22282227\\java\\PlanoDeSaude\\PlanoDeSaude.txt";
     private final static Path PATH = Paths.get(URL);
+    
+    private final static String URL_TEM = "C:\\Users\\22282227\\java\\PlanoDeSaude\\PlanoDeSaude-temp.txt";
+    private final static Path PATH_TEMP = Paths.get(URL_TEM);
     
     public static ArrayList<PlanoDeSaude> planoDeSaude = new ArrayList<>();
     private static CharSequence validade;
@@ -62,6 +66,7 @@ public class PlanoDeSaudeDAO {
                 break;
             }
         }
+        atualizarArquivo();
     }    
         
         //instancia de um objeto
@@ -72,9 +77,34 @@ public class PlanoDeSaudeDAO {
                 break;
             }
         }
+        atualizarArquivo();
     }
         
-    
+    public static void atualizarArquivo(){
+        File arquivoAtual = new File(URL);
+        File arquivoTemp = new File(URL_TEM);
+        
+        try {
+            arquivoTemp.createNewFile();
+            
+            BufferedWriter bwTemp = Files.newBufferedWriter(
+                    PATH_TEMP, 
+                    StandardOpenOption.APPEND,
+                    StandardOpenOption.WRITE);
+            
+            for(PlanoDeSaude p : planoDeSaude){
+                bwTemp.write(p.getPlanoDeSaudeSeparadaPorPontoEVirgula());
+                bwTemp.newLine();
+            }
+            bwTemp.close();
+            
+            arquivoAtual.delete();
+            
+            arquivoTemp.renameTo(arquivoAtual);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void criarListaDePlanoDeSaude(){
         
