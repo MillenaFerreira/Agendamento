@@ -59,9 +59,13 @@ public class EspecialidadesDialog extends javax.swing.JDialog {
         labelTitulo.setText(" Especialidades - " + operacao);
         
         if(operacao == OperacaoEnum.EDITAR){
-          labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/editar.png")));  
+          labelTitulo.setIcon(new javax.swing.ImageIcon(
+                  getClass().getResource(
+                          "/br/senai/sp/jandira/imagens/editar.png")));  
         }else{
-          labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/adicionar.png")));
+          labelTitulo.setIcon(new javax.swing.ImageIcon(
+                  getClass().getResource(
+                          "/br/senai/sp/jandira/imagens/adicionar.png")));
         }
         
     }

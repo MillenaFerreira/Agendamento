@@ -16,6 +16,7 @@ public class HomeFrame extends javax.swing.JFrame {
     //Atributos da classe
     PanelEspecialidades panelEspecialidades;
     PanelPlanoDeSaude panelPlanoDeSaude;
+    PanelMedico panelMedico;
     
     //Constantes
     private final int POS_X = 10;
@@ -197,7 +198,7 @@ public class HomeFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHomeActionPerformed
-        
+        panelMedico.setVisible(false);
         panelEspecialidades.setVisible(false);
         panelPlanoDeSaude.setVisible(false);
         panelHome.setVisible(true);
@@ -209,14 +210,17 @@ public class HomeFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonPacientesActionPerformed
 
     private void buttonEspecialidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEspecialidadesActionPerformed
-        
-        panelEspecialidades.setVisible(true);
+        panelMedico.setVisible(false);
+        panelPlanoDeSaude.setVisible(false);
         panelHome.setVisible(false);
-        
+        panelEspecialidades.setVisible(true);
     }//GEN-LAST:event_buttonEspecialidadesActionPerformed
 
     private void buttonMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMedicosActionPerformed
-        // TODO add your handling code here:
+        panelEspecialidades.setVisible(false);
+        panelPlanoDeSaude.setVisible(false);
+        panelHome.setVisible(false);
+        panelMedico.setVisible(true);
     }//GEN-LAST:event_buttonMedicosActionPerformed
 
     private void buttonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSairActionPerformed
@@ -229,9 +233,9 @@ public class HomeFrame extends javax.swing.JFrame {
 
     private void buttonPlanoDeSaudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlanoDeSaudeActionPerformed
         panelEspecialidades.setVisible(false);
-        panelPlanoDeSaude.setVisible(true);
+        panelMedico.setVisible(false);
         panelHome.setVisible(false);
-        
+        panelPlanoDeSaude.setVisible(true);
     }//GEN-LAST:event_buttonPlanoDeSaudeActionPerformed
 
     
@@ -280,13 +284,15 @@ public class HomeFrame extends javax.swing.JFrame {
                 ALTURA);
         getContentPane().add(panelPlanoDeSaude);
         panelPlanoDeSaude.setVisible(false);
+        
+        panelMedico = new PanelMedico();
+        panelMedico.setBounds(
+                POS_X, 
+                POS_Y, 
+                LARGURA, 
+                ALTURA);
+        getContentPane().add(panelMedico);
+        panelMedico.setVisible(false);
     }
-
-
-
-
-
-
-
 
 }

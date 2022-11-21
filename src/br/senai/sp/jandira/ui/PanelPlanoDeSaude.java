@@ -64,7 +64,7 @@ public class PanelPlanoDeSaude extends javax.swing.JPanel {
         scrollPlanoDeSaude.setBounds(10, 30, 860, 280);
 
         buttonExcluirPlanoDeSaude.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/excluir.png"))); // NOI18N
-        buttonExcluirPlanoDeSaude.setToolTipText("EXCLUIR a Especialidade selecionada");
+        buttonExcluirPlanoDeSaude.setToolTipText("EXCLUIR o Plano de Saúde");
         buttonExcluirPlanoDeSaude.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonExcluirPlanoDeSaudeActionPerformed(evt);
@@ -74,7 +74,7 @@ public class PanelPlanoDeSaude extends javax.swing.JPanel {
         buttonExcluirPlanoDeSaude.setBounds(640, 320, 60, 50);
 
         buttonNovaPlanoDeSaude.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/adicionar.png"))); // NOI18N
-        buttonNovaPlanoDeSaude.setToolTipText("ADICIONAR uma nova Especialidade");
+        buttonNovaPlanoDeSaude.setToolTipText("ADICIONAR uma novo Plano de Saúde");
         buttonNovaPlanoDeSaude.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonNovaPlanoDeSaudeActionPerformed(evt);
@@ -84,7 +84,7 @@ public class PanelPlanoDeSaude extends javax.swing.JPanel {
         buttonNovaPlanoDeSaude.setBounds(800, 320, 60, 50);
 
         buttonEditarPlanoDeSaude.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/editar.png"))); // NOI18N
-        buttonEditarPlanoDeSaude.setToolTipText("EDITAR a Especialidade selecionada");
+        buttonEditarPlanoDeSaude.setToolTipText("EDITAR o Plano de Saúde");
         buttonEditarPlanoDeSaude.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonEditarPlanoDeSaudeActionPerformed(evt);
