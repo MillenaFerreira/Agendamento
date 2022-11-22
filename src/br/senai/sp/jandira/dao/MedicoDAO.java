@@ -37,7 +37,7 @@ public class MedicoDAO {
     
     public static void excluir(Integer codigo){
         for (Medico m : medico){
-            if(m.getCodigo() == codigo){
+            if(m.getCodigo().equals(codigo)){
                 medico.remove(m);
                 break;
             }

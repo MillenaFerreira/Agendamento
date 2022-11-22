@@ -4,6 +4,7 @@ package br.senai.sp.jandira.ui;
 import br.senai.sp.jandira.dao.MedicoDAO;
 import br.senai.sp.jandira.model.Medico;
 import br.senai.sp.jandira.model.OperacaoEnum;
+import java.awt.Toolkit;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
@@ -14,9 +15,37 @@ public class MedicoDialog extends javax.swing.JDialog {
     private Medico medico;
     private OperacaoEnum operacao;
     
-    public MedicoDialog(java.awt.Frame parent, boolean modal) {
+    public MedicoDialog(
+            java.awt.Frame parent, 
+            boolean modal,
+            OperacaoEnum operacao) {
+        
         super(parent, modal);
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(
+                getClass().getResource(
+                        "/br/senai/sp/jandira/imagens/agenda.png")));
+        this.operacao = operacao;
+        preencherTitulo();
+    }
+    
+    public MedicoDialog(
+            java.awt.Frame parent, 
+            boolean modal,
+            Medico m,
+            OperacaoEnum operacao) {
+        
+        super(parent, modal);
+        initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(
+                getClass().getResource(
+                        "/br/senai/sp/jandira/imagens/agenda.png")));
+        
+        medico = m;
+        this.operacao = operacao;
+        
+        preencherFormulario();
+        preencherTitulo();
     }
     
     private void preencherFormulario(){
@@ -26,11 +55,13 @@ public class MedicoDialog extends javax.swing.JDialog {
         textFieldNomeDoMedico.setText(medico.getNome());
         textFieldTelefoneMedico.setText(medico.getTelefone());
         textFieldEmailMedico.setText(medico.getEmail());
-        formattedTextFieldDataDeNascimento.setText(medico.getDataDeNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        formattedTextFieldDataDeNascimento.setText(
+                medico.getDataDeNascimento().format(
+                        DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
 
     private void preencherTitulo(){
-        labelTitulo.setText("Médico - " + operacao);
+        labelTitulo.setText(" Médico - " + operacao);
         
         if(operacao == OperacaoEnum.EDITAR){
             labelTitulo.setIcon(new javax.swing.ImageIcon(
@@ -171,83 +202,88 @@ public class MedicoDialog extends javax.swing.JDialog {
         });
         jPanel2.add(formattedTextFieldDataDeNascimento);
         formattedTextFieldDataDeNascimento.setBounds(600, 120, 130, 30);
+        try {
+            formattedTextFieldDataDeNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
+                new javax.swing.text.MaskFormatter("##/##/####")));
+    } catch (java.text.ParseException ex) {
+        ex.printStackTrace();
+    }
 
-        labelListaEspecialidade.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labelListaEspecialidade.setText("Lista de Especialidades :");
-        jPanel2.add(labelListaEspecialidade);
-        labelListaEspecialidade.setBounds(40, 180, 140, 16);
+    labelListaEspecialidade.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+    labelListaEspecialidade.setText("Lista de Especialidades :");
+    jPanel2.add(labelListaEspecialidade);
+    labelListaEspecialidade.setBounds(40, 180, 140, 16);
 
-        listListaDeEspecialidade.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        scrollListaDeEspecialidade.setViewportView(listListaDeEspecialidade);
+    listListaDeEspecialidade.setModel(new javax.swing.AbstractListModel<String>() {
+        String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        public int getSize() { return strings.length; }
+        public String getElementAt(int i) { return strings[i]; }
+    });
+    scrollListaDeEspecialidade.setViewportView(listListaDeEspecialidade);
 
-        jPanel2.add(scrollListaDeEspecialidade);
-        scrollListaDeEspecialidade.setBounds(40, 200, 160, 190);
+    jPanel2.add(scrollListaDeEspecialidade);
+    scrollListaDeEspecialidade.setBounds(40, 200, 160, 190);
 
-        buttonDireita.setBackground(new java.awt.Color(0, 255, 0));
-        buttonDireita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/seta-direita.png"))); // NOI18N
-        buttonDireita.setActionCommand("");
-        buttonDireita.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonDireitaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(buttonDireita);
-        buttonDireita.setBounds(250, 240, 70, 40);
+    buttonDireita.setBackground(new java.awt.Color(0, 255, 0));
+    buttonDireita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/seta-direita.png"))); // NOI18N
+    buttonDireita.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            buttonDireitaActionPerformed(evt);
+        }
+    });
+    jPanel2.add(buttonDireita);
+    buttonDireita.setBounds(250, 240, 70, 40);
 
-        buttonEsquerda.setBackground(new java.awt.Color(255, 51, 51));
-        buttonEsquerda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/seta-esquerda.png"))); // NOI18N
-        buttonEsquerda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEsquerdaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(buttonEsquerda);
-        buttonEsquerda.setBounds(250, 310, 70, 40);
+    buttonEsquerda.setBackground(new java.awt.Color(255, 51, 51));
+    buttonEsquerda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/seta-esquerda.png"))); // NOI18N
+    buttonEsquerda.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            buttonEsquerdaActionPerformed(evt);
+        }
+    });
+    jPanel2.add(buttonEsquerda);
+    buttonEsquerda.setBounds(250, 310, 70, 40);
 
-        labelEspecialidadesDoMedico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labelEspecialidadesDoMedico.setText("Especialidades do Médico :");
-        jPanel2.add(labelEspecialidadesDoMedico);
-        labelEspecialidadesDoMedico.setBounds(370, 180, 160, 16);
+    labelEspecialidadesDoMedico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+    labelEspecialidadesDoMedico.setText("Especialidades do Médico :");
+    jPanel2.add(labelEspecialidadesDoMedico);
+    labelEspecialidadesDoMedico.setBounds(370, 180, 160, 16);
 
-        listEspecialidadesDoMedico.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        scrollEspecialidadesDoMedico.setViewportView(listEspecialidadesDoMedico);
+    listEspecialidadesDoMedico.setModel(new javax.swing.AbstractListModel<String>() {
+        String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        public int getSize() { return strings.length; }
+        public String getElementAt(int i) { return strings[i]; }
+    });
+    scrollEspecialidadesDoMedico.setViewportView(listEspecialidadesDoMedico);
 
-        jPanel2.add(scrollEspecialidadesDoMedico);
-        scrollEspecialidadesDoMedico.setBounds(370, 200, 160, 190);
+    jPanel2.add(scrollEspecialidadesDoMedico);
+    scrollEspecialidadesDoMedico.setBounds(370, 200, 160, 190);
 
-        buttonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/cancelar.png"))); // NOI18N
-        buttonCancelar.setToolTipText("Cancelar");
-        buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCancelarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(buttonCancelar);
-        buttonCancelar.setBounds(600, 360, 60, 50);
+    buttonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/cancelar.png"))); // NOI18N
+    buttonCancelar.setToolTipText("Cancelar");
+    buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            buttonCancelarActionPerformed(evt);
+        }
+    });
+    jPanel2.add(buttonCancelar);
+    buttonCancelar.setBounds(600, 360, 60, 50);
 
-        buttonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/salvar.png"))); // NOI18N
-        buttonSalvar.setToolTipText("Salvar");
-        buttonSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSalvarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(buttonSalvar);
-        buttonSalvar.setBounds(680, 360, 60, 50);
+    buttonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/salvar.png"))); // NOI18N
+    buttonSalvar.setToolTipText("Salvar");
+    buttonSalvar.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            buttonSalvarActionPerformed(evt);
+        }
+    });
+    jPanel2.add(buttonSalvar);
+    buttonSalvar.setBounds(680, 360, 60, 50);
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(20, 80, 750, 420);
+    getContentPane().add(jPanel2);
+    jPanel2.setBounds(20, 80, 750, 420);
 
-        setSize(new java.awt.Dimension(804, 565));
-        setLocationRelativeTo(null);
+    setSize(new java.awt.Dimension(804, 565));
+    setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void textFieldCodigoMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldCodigoMedicoActionPerformed

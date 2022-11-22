@@ -14,7 +14,7 @@ public class Medico {
     private String crm;
     private LocalDate dataDeNascimento;
 
-    //esqueci de colocar data de nascimento
+    
     //construtor
     public Medico(String nome, String telefone, String email, String crm) {
         this.nome = nome;
@@ -25,7 +25,7 @@ public class Medico {
     }
     
     public Medico(){
-        
+        gerarCodigo();
     }
 
     //metodos
@@ -99,7 +99,5 @@ public class Medico {
         return this.codigo +";"+this.nome+";"+this.telefone+";"+this.email+";"+this.crm+";"+this.dataDeNascimento+";"+this.especialidades;
     }
 
-    public void getDataDeNascimento(LocalDate parse) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }
