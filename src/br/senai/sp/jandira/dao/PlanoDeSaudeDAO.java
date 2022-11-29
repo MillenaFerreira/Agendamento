@@ -135,6 +135,7 @@ public class PlanoDeSaudeDAO {
             JOptionPane.showMessageDialog(
                     null, 
                     "Ocorreu um erro ao ler o arquivo");
+            e.printStackTrace();
         }
         
 //        PlanoDeSaude p1 = new PlanoDeSaude("11.11111111.11", "Amil", "Bronze", LocalDate.of(2020, 1, 1));

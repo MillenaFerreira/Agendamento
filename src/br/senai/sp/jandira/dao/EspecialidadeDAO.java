@@ -160,6 +160,7 @@ public class EspecialidadeDAO {
             JOptionPane.showMessageDialog(
                     null,
                     "Ocorreu um erro ao ler o arquivo");
+            e.printStackTrace();
         }
 
 //        Especialidade e1 = new Especialidade("Cardiologia", "cuida do coração");

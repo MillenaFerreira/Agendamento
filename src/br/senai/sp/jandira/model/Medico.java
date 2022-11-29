@@ -24,6 +24,16 @@ public class Medico {
         gerarCodigo();
     }
     
+    public Medico(Integer codigo, String nome, String telefone, String email, String crm, LocalDate dataDeNascimento) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.crm = crm;
+        this.dataDeNascimento = dataDeNascimento;
+        gerarCodigo();
+    }
+    
     public Medico(){
         gerarCodigo();
     }

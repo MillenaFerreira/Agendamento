@@ -141,7 +141,9 @@ public class PanelMedico extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonEditarMedicoActionPerformed
     private void editarMedico(){
         
+        System.out.println("--------------->" + getCodigo());
         Medico medico = MedicoDAO.getMedico(getCodigo());
+        
         
         MedicoDialog medicoDialog = 
                 new MedicoDialog(
