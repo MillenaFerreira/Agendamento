@@ -1,6 +1,7 @@
 package br.senai.sp.jandira.dao;
 
 import br.senai.sp.jandira.model.Especialidade;
+import br.senai.sp.jandira.model.Medico;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,6 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -198,6 +200,21 @@ public class EspecialidadeDAO {
 
         return new DefaultTableModel(dados, titulo);
 
+    }
+    
+    
+    //armazenando os dados para usar no Jlist do Medico
+    public static DefaultListModel<String> getListaEspecialidade() {
+        DefaultListModel<String> listaEspecialidade = new DefaultListModel<>();
+        
+        for(Especialidade especialidade : especialidades){
+            listaEspecialidade.addElement(especialidade.getCodigo() 
+                    + " - " + 
+                    especialidade.getNome());
+        }
+        
+        return listaEspecialidade;
+        
     }
 
 }

@@ -1,6 +1,7 @@
 package br.senai.sp.jandira.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Medico {
 
@@ -8,7 +9,7 @@ public class Medico {
     private static int contador = 999;
     private Integer codigo;
     private String nome;
-    private Especialidade[] especialidades;
+    private ArrayList<Especialidade> especialidades;
     private String telefone;
     private String email;
     private String crm;
@@ -64,13 +65,15 @@ public class Medico {
         return nome;
     }
 
-    public void setEspecialidade(Especialidade[] especialidade) {
-        this.especialidades = especialidade;
-    }
-
-    public Especialidade[] getEspecialidade() {
+    public ArrayList<Especialidade> getEspecialidades() {
         return especialidades;
     }
+
+    public void setEspecialidades(ArrayList<Especialidade> especialidades) {
+        this.especialidades = especialidades;
+    }
+
+    
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
