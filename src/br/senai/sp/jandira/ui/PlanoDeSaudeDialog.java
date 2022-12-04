@@ -21,7 +21,9 @@ public class PlanoDeSaudeDialog extends javax.swing.JDialog {
         
         super(parent, modal);
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/senai/sp/jandira/imagens/agenda.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(
+                getClass().getResource(
+                        "/br/senai/sp/jandira/imagens/agenda.png")));
         this.operacao = operacao;
         preencherTitulo();
     }
@@ -35,7 +37,9 @@ public class PlanoDeSaudeDialog extends javax.swing.JDialog {
         
         super(parent, modal);
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/senai/sp/jandira/imagens/agenda.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(
+                getClass().getResource(
+                        "/br/senai/sp/jandira/imagens/agenda.png")));
         
         planoDeSaude = p;
         this.operacao = operacao;
@@ -49,7 +53,8 @@ public class PlanoDeSaudeDialog extends javax.swing.JDialog {
         textFieldNomeDaOperadora.setText(planoDeSaude.getOperadora());
         textFieldCategoriaPlanoDeSaude.setText(planoDeSaude.getCategoria());
         textFieldNumeroPlanoDeSaude.setText(planoDeSaude.getNumeroDaCarteira());
-        formattedTextFieldValidade.setText(planoDeSaude.getValidade().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        formattedTextFieldValidade.setText(planoDeSaude.getValidade().format(
+                DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         
         System.out.println(planoDeSaude.getValidade().toString());
 }
@@ -59,9 +64,11 @@ public class PlanoDeSaudeDialog extends javax.swing.JDialog {
         labelTitulo.setText(" PLANO DE SAÚDE - " + operacao);
         
         if(operacao == OperacaoEnum.EDITAR){
-            labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/editar.png")));
+            labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource(
+                    "/br/senai/sp/jandira/imagens/editar.png")));
         }else{
-           labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/adicionar.png"))); 
+           labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource(
+                   "/br/senai/sp/jandira/imagens/adicionar.png"))); 
         }
     
     }
@@ -200,16 +207,24 @@ public class PlanoDeSaudeDialog extends javax.swing.JDialog {
         CharSequence s = " ";
         
         if(textFieldNumeroPlanoDeSaude.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "POR FAVOR !!! Digite o Número da sua carteira");
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "POR FAVOR !!! Digite o Número da sua carteira");
             textFieldNumeroPlanoDeSaude.requestFocus();
         }else if(textFieldNomeDaOperadora.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "POR FAVOR !!! Digite o nome da Operadora");
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "POR FAVOR !!! Digite o nome da Operadora");
             textFieldNomeDaOperadora.requestFocus();
         }else if(textFieldCategoriaPlanoDeSaude.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "POR FAVOR !!! Digite o nome da Categoria");
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "POR FAVOR !!! Digite o nome da Categoria");
             textFieldCategoriaPlanoDeSaude.requestFocus();
         }else if(formattedTextFieldValidade.getText().contains(s) == true){
-            JOptionPane.showMessageDialog(this, "POR FAVOR !!! Digite uma data correta");
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "POR FAVOR !!! Digite uma data correta");
             formattedTextFieldValidade.requestFocus();
         } else {
             if (operacao == OperacaoEnum.ADICIONAR){

@@ -1,7 +1,6 @@
 package br.senai.sp.jandira.dao;
 
 import br.senai.sp.jandira.model.Especialidade;
-import br.senai.sp.jandira.model.Medico;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -22,16 +21,26 @@ public class EspecialidadeDAO {
     das especialidades, por exemplo, adicionar uma nova especialidade,
     excluir uma especialidade, etc.
      */
+   // private final static String URL
+     //       = "C:\\Users\\22282227\\java\\Especialidade\\Especialidade.txt";
+    //private final static Path PATH = Paths.get(URL);
+
+    //private final static String URL_TEMP
+         //   = "C:\\Users\\22282227\\java\\Especialidade\\Especialidade-temp.txt";
+    //private final static Path PATH_TEMP = Paths.get(URL_TEMP);
+    
     private final static String URL
-            = "C:\\Users\\22282227\\java\\Especialidade\\Especialidade.txt";
+            = "C:\\Users\\Millena\\Pictures\\Medico\\Especialidade.txt";
     private final static Path PATH = Paths.get(URL);
 
     private final static String URL_TEMP
-            = "C:\\Users\\22282227\\java\\Especialidade\\Especialidade-temp.txt";
+            = "C:\\Users\\Millena\\Pictures\\Medico\\Especialidade-temp.txt";
     private final static Path PATH_TEMP = Paths.get(URL_TEMP);
 
     private static ArrayList<Especialidade> especialidades = new ArrayList<>();
-
+    
+    
+    
     public static void gravar(Especialidade e) { //CREATE
         especialidades.add(e);
 
@@ -165,15 +174,15 @@ public class EspecialidadeDAO {
             e.printStackTrace();
         }
 
-//        Especialidade e1 = new Especialidade("Cardiologia", "cuida do coração");
-//        Especialidade e2 = new Especialidade("Fisioterapia", "cuida do dodoi");
-//        Especialidade e3 = new Especialidade("Clínico geral", "cuida de tudo um pouquinho");
-//        Especialidade e4 = new Especialidade("Pediatria", "cuida das crianças");
-//        
-//        especialidades.add(e1);
-//        especialidades.add(e2);
-//        especialidades.add(e3);
-//        especialidades.add(e4);
+        //Especialidade e1 = new Especialidade("Cardiologia", "cuida do coração");
+        //Especialidade e2 = new Especialidade("Fisioterapia", "cuida do dodoi");
+        //Especialidade e3 = new Especialidade("Clínico geral", "cuida de tudo um pouquinho");
+        //Especialidade e4 = new Especialidade("Pediatria", "cuida das crianças");
+        
+        //especialidades.add(e1);
+        //especialidades.add(e2);
+        //especialidades.add(e3);
+        //especialidades.add(e4);
         System.out.println(especialidades.size());
     }
 
@@ -207,6 +216,8 @@ public class EspecialidadeDAO {
     public static DefaultListModel<String> getListaEspecialidade() {
         DefaultListModel<String> listaEspecialidade = new DefaultListModel<>();
         
+        
+        
         for(Especialidade especialidade : especialidades){
             listaEspecialidade.addElement(especialidade.getCodigo() 
                     + " - " + 
@@ -216,5 +227,7 @@ public class EspecialidadeDAO {
         return listaEspecialidade;
         
     }
-
+    
+   
 }
+   

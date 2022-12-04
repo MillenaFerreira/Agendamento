@@ -18,13 +18,32 @@ import javax.swing.table.DefaultTableModel;
 
 public class MedicoDAO {
 
-    private final static String URL = "C:\\Users\\22282227\\java\\Medico\\Medico.txt";
+    //private final static String URL = "C:\\Users\\22282227\\java\\Medico\\Medico.txt";
+    //private final static Path PATH = Paths.get(URL);
+
+    //private final static String URL_TEMP = "C:\\Users\\22282227\\java\\Medico\\Medico-temp.txt";
+    //private final static Path PATH_TEMP = Paths.get(URL_TEMP);
+    
+    private final static String URL = "C:\\Users\\Millena\\Pictures\\Medico\\Medico.txt";
     private final static Path PATH = Paths.get(URL);
 
-    private final static String URL_TEMP = "C:\\Users\\22282227\\java\\Medico\\Medico-temp.txt";
+    private final static String URL_TEMP = "C:\\Users\\Millena\\Pictures\\Medico\\Medico-temp.txt";
     private final static Path PATH_TEMP = Paths.get(URL_TEMP);
 
     private static ArrayList<Medico> medico = new ArrayList<>();
+    public static ArrayList<Especialidade> apenasEspecilidadeDoMedico(String linha) {
+        
+        String[] vetor = linha.split(";");
+        
+        int codigoEspecilidade = 20;
+        
+        ArrayList<Especialidade> codigos = new ArrayList<>();
+        while(codigoEspecilidade < vetor.length){
+            codigos.add(EspecialidadeDAO.getEspecialidade(Integer.valueOf(vetor(codigoEspecilidade))));
+            codigoEspecilidade++;
+        }
+        return codigos;
+    }
 
     public static void gravar(Medico m) {
         medico.add(m);
@@ -145,16 +164,16 @@ public class MedicoDAO {
             e.printStackTrace();
         }
 
-//        Medico m1 = new Medico("Maria", "(11)95948-5912", "mariadr@gmail.com", "12121212-0/BR");
-//        Medico m2 = new Medico("José", "(11)95555-5555", "josédr@gmail.com", "11121662-9/BR");
-//        Medico m3 = new Medico("Mauricio", "(11)93578-5212", "mauriciodr@gmail.com", "18151292-5/BR");
-//        Medico m4 = new Medico("Miguel", "(11)95948-5912", "migueldr@gmail.com", "32125672-4/BR");
-//        
-//      medico.add(m1);
-//      medico.add(m2);
-//      medico.add(m3);
-//      medico.add(m4);
-//    
+        //Medico m1 = new Medico("Maria", "(11)95948-5912", "mariadr@gmail.com", "12121212-0/BR");
+        //Medico m2 = new Medico("José", "(11)95555-5555", "josédr@gmail.com", "11121662-9/BR");
+        //Medico m3 = new Medico("Mauricio", "(11)93578-5212", "mauriciodr@gmail.com", "18151292-5/BR");
+        //Medico m4 = new Medico("Miguel", "(11)95948-5912", "migueldr@gmail.com", "32125672-4/BR");
+        
+      //medico.add(m1);
+      //medico.add(m2);
+      //medico.add(m3);
+      //medico.add(m4);
+   
         System.out.println(medico.size());
     }
 
@@ -183,8 +202,45 @@ public class MedicoDAO {
     }
 
     
+   // public static DefaultListModel<String> getListaMedico(){
+     //   DefaultListModel<String> listaMedico = new DefaultListModel<>();
+       
+        //String str[] = {"Apple", "Banana"};
+        
+     // for(int i=0;i<str.length;i++){
+        //  getListaMedico().addElement(str[i]);
+      //}
+        
+     // return listaMedico;
+    //}
     
-    
-    
+     public static DefaultListModel<String> getListaEspecialidadesDoMedico(){
+       DefaultListModel<String> listaEspecialidadeDoMedico = new DefaultListModel<>();
+       
+         try {
+             
+             BufferedReader leitor = Files.newBufferedReader(PATH);
+             
+             String linha = leitor.readLine();
+             
+             for(Especialidade sequenciaListaMedico : apenasEspecilidadeDoMedico(linha)){
+                 listaEspecialidadeDoMedico.addElement(sequenciaListaMedico.getNome());
+             }
+             
+             leitor.close();
+             
+         } catch (Exception e) {
+             
+             JOptionPane.showMessageDialog(
+                     null, 
+                     "Ocorreu um erro ao adicionar na lista de Especialidades do Médico");
+         }
+       
+       return listaEspecialidadeDoMedico;
+    }
+
+    private static String vetor(int codigoEspecilidade) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
