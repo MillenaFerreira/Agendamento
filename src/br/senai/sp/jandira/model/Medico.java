@@ -10,6 +10,7 @@ public class Medico {
     private Integer codigo;
     private String nome;
     private ArrayList<Especialidade> especialidades;
+    //private ArrayList<String> especialidades;
     private String telefone;
     private String email;
     private String crm;
@@ -73,7 +74,13 @@ public class Medico {
         this.especialidades = especialidades;
     }
 
-    
+    //public ArrayList<String> getEspecialidades() {
+      //  return especialidades;
+    //}
+
+    //public void setEspecialidades(ArrayList<String> especialidades) {
+      //  this.especialidades = especialidades;
+    //}
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;

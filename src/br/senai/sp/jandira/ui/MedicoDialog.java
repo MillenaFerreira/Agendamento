@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 
@@ -340,6 +341,16 @@ public class MedicoDialog extends javax.swing.JDialog {
         
     }//GEN-LAST:event_buttonSalvarActionPerformed
     
+    //evento do button salvar
+    //private ArrayList<Especialidade> pegarEspecialidades(JList<Especialidade> lista) {
+      //  int tamanho = lista.getModel().getSize();
+       // ArrayList<Especialidade> listaNova = new ArrayList();
+       // for (int i = 0; i < tamanho; i++) {
+        //    listaNova.add(lista.getModel().getElementAt(i));
+        //}
+       // return listaNova;
+   // }
+    
     private void adicionar(){
         Medico novoMedico = new Medico();
         novoMedico.setCrm(textFieldCrmMedico.getText());
@@ -349,6 +360,7 @@ public class MedicoDialog extends javax.swing.JDialog {
         novoMedico.setDataDeNascimento(LocalDate.parse(
                 formattedTextFieldDataDeNascimento.getText(), 
                 DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        
         
         MedicoDAO.gravar(novoMedico);
         
@@ -460,12 +472,46 @@ public class MedicoDialog extends javax.swing.JDialog {
        //
        
        
-       //terminar
+       
         
     }//GEN-LAST:event_buttonDireitaActionPerformed
 
     private void buttonEsquerdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEsquerdaActionPerformed
-        // TODO add your handling code here:
+        
+        int resposta = JOptionPane.showConfirmDialog(
+                this, 
+                "Você confirma a exclusão:", 
+                "Atenção", JOptionPane.YES_NO_OPTION, 
+                JOptionPane.WARNING_MESSAGE);
+        
+        if(resposta == 0){
+        
+            if(listEspecialidadesDoMedico.isSelectionEmpty() == false){
+                ArrayList<String> novaListaMedicos = new ArrayList<>();
+                int tamanho = listEspecialidadesDoMedico.getModel().getSize();
+            
+                for(int i = 0; i < tamanho; i++){
+                    novaListaMedicos.add(listEspecialidadesDoMedico.getModel().getElementAt(i));
+                }
+                novaListaMedicos.remove(listEspecialidadesDoMedico.getSelectedValue());
+            
+                DefaultListModel<String> listaEspecialidadeMedicoModel = new DefaultListModel<>();
+                for(String acaoVoltar : novaListaMedicos){
+                    listaEspecialidadeMedicoModel.addElement(acaoVoltar);
+                }
+                listEspecialidadesDoMedico.setModel(listaEspecialidadeMedicoModel);
+            
+            
+            
+            }else{
+                JOptionPane.showMessageDialog(
+                    this, 
+                    "Não contém nenhuma especialidade na lista", 
+                    "Editando Médico", 
+                    JOptionPane.WARNING_MESSAGE);
+            }
+        
+        }
     }//GEN-LAST:event_buttonEsquerdaActionPerformed
 
     private void formattedTextFieldDataDeNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formattedTextFieldDataDeNascimentoActionPerformed
