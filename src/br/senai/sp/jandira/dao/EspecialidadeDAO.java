@@ -21,21 +21,21 @@ public class EspecialidadeDAO {
     das especialidades, por exemplo, adicionar uma nova especialidade,
     excluir uma especialidade, etc.
      */
-   // private final static String URL
-     //       = "C:\\Users\\22282227\\java\\Especialidade\\Especialidade.txt";
-    //private final static Path PATH = Paths.get(URL);
-
-    //private final static String URL_TEMP
-         //   = "C:\\Users\\22282227\\java\\Especialidade\\Especialidade-temp.txt";
-    //private final static Path PATH_TEMP = Paths.get(URL_TEMP);
-    
     private final static String URL
-            = "C:\\Users\\Millena\\Pictures\\Medico\\Especialidade.txt";
+            = "C:\\Users\\22282227\\java\\Especialidade\\Especialidade.txt";
     private final static Path PATH = Paths.get(URL);
 
     private final static String URL_TEMP
-            = "C:\\Users\\Millena\\Pictures\\Medico\\Especialidade-temp.txt";
+            = "C:\\Users\\22282227\\java\\Especialidade\\Especialidade-temp.txt";
     private final static Path PATH_TEMP = Paths.get(URL_TEMP);
+    
+//    private final static String URL
+//            = "C:\\Users\\Millena\\Pictures\\Medico\\Especialidade.txt";
+//    private final static Path PATH = Paths.get(URL);
+//
+//    private final static String URL_TEMP
+//            = "C:\\Users\\Millena\\Pictures\\Medico\\Especialidade-temp.txt";
+//    private final static Path PATH_TEMP = Paths.get(URL_TEMP);
 
     private static ArrayList<Especialidade> especialidades = new ArrayList<>();
     

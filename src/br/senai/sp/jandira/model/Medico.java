@@ -9,8 +9,8 @@ public class Medico {
     private static int contador = 999;
     private Integer codigo;
     private String nome;
-    private ArrayList<Especialidade> especialidades;
-    //private ArrayList<String> especialidades;
+    private ArrayList<Especialidade> especialidade;
+    private ArrayList<String> especialidades;
     private String telefone;
     private String email;
     private String crm;
@@ -33,6 +33,17 @@ public class Medico {
         this.email = email;
         this.crm = crm;
         this.dataDeNascimento = dataDeNascimento;
+        gerarCodigo();
+    }
+    
+    public Medico(Integer codigo, String nome, String telefone, String email, String crm, LocalDate dataDeNascimento, ArrayList<String> especialidade) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.crm = crm;
+        this.dataDeNascimento = dataDeNascimento;
+        this.especialidades = especialidade;
         gerarCodigo();
     }
     
@@ -66,21 +77,21 @@ public class Medico {
         return nome;
     }
 
-    public ArrayList<Especialidade> getEspecialidades() {
+//    public ArrayList<Especialidade> getEspecialidades() {
+//        return especialidades;
+//    }
+//
+//    public void setEspecialidades(ArrayList<Especialidade> especialidades) {
+//        this.especialidades = especialidades;
+//    }
+
+    public ArrayList<String> getEspecialidades() {
         return especialidades;
     }
 
-    public void setEspecialidades(ArrayList<Especialidade> especialidades) {
+    public void setEspecialidades(ArrayList<String> especialidades) {
         this.especialidades = especialidades;
     }
-
-    //public ArrayList<String> getEspecialidades() {
-      //  return especialidades;
-    //}
-
-    //public void setEspecialidades(ArrayList<String> especialidades) {
-      //  this.especialidades = especialidades;
-    //}
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
@@ -114,9 +125,22 @@ public class Medico {
         return dataDeNascimento;
     }
 
+    public String getCodigosEspecialidades() {
+        String codigosEspecialidades = "";
+        for (Especialidade especialidade : especialidades) {
+            codigosEspecialidades += especialidade.getCodigo() + ";";
+        }
+        return codigosEspecialidades;
+    }
     
     public String getMedicoSeparadaPorPontoEVirgula(){
-        return this.codigo +";"+this.nome+";"+this.telefone+";"+this.email+";"+this.crm+";"+this.dataDeNascimento+";"+this.especialidades;
+        return this.codigo +";"
+                +this.nome+";"
+                +this.telefone+";"
+                +this.email+";"
+                +this.crm+";"
+                +this.dataDeNascimento
+                +getCodigosEspecialidades();
     }
 
     

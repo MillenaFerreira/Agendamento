@@ -19,16 +19,18 @@ import javax.swing.table.DefaultTableModel;
 
 public class PlanoDeSaudeDAO {
     
-    //private final static String URL = "C:\\Users\\22282227\\java\\PlanoDeSaude\\PlanoDeSaude.txt";
-    //private final static Path PATH = Paths.get(URL);
-    
-    //private final static String URL_TEM = "C:\\Users\\22282227\\java\\PlanoDeSaude\\PlanoDeSaude-temp.txt";
-    //private final static Path PATH_TEMP = Paths.get(URL_TEM);
-    private final static String URL = "C:\\Users\\Millena\\Pictures\\Medico\\planoDeSaude.txt";
+    private final static String URL = "C:\\Users\\22282227\\java\\PlanoDeSaude\\PlanoDeSaude.txt";
     private final static Path PATH = Paths.get(URL);
     
-    private final static String URL_TEM = "C:\\Users\\Millena\\Pictures\\Medico\\planoDeSaude-temp.txt";
+    private final static String URL_TEM = "C:\\Users\\22282227\\java\\PlanoDeSaude\\PlanoDeSaude-temp.txt";
     private final static Path PATH_TEMP = Paths.get(URL_TEM);
+    
+    
+//    private final static String URL = "C:\\Users\\Millena\\Pictures\\Medico\\planoDeSaude.txt";
+//    private final static Path PATH = Paths.get(URL);
+//    
+//    private final static String URL_TEM = "C:\\Users\\Millena\\Pictures\\Medico\\planoDeSaude-temp.txt";
+//    private final static Path PATH_TEMP = Paths.get(URL_TEM);
     
     public static ArrayList<PlanoDeSaude> planoDeSaude = new ArrayList<>();
     private static CharSequence validade;

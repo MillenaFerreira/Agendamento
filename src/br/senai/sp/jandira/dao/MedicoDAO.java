@@ -18,17 +18,17 @@ import javax.swing.table.DefaultTableModel;
 
 public class MedicoDAO {
 
-    //private final static String URL = "C:\\Users\\22282227\\java\\Medico\\Medico.txt";
-    //private final static Path PATH = Paths.get(URL);
-
-    //private final static String URL_TEMP = "C:\\Users\\22282227\\java\\Medico\\Medico-temp.txt";
-    //private final static Path PATH_TEMP = Paths.get(URL_TEMP);
-    
-    private final static String URL = "C:\\Users\\Millena\\Pictures\\Medico\\Medico.txt";
+    private final static String URL = "C:\\Users\\22282227\\java\\Medico\\Medico.txt";
     private final static Path PATH = Paths.get(URL);
 
-    private final static String URL_TEMP = "C:\\Users\\Millena\\Pictures\\Medico\\Medico-temp.txt";
+    private final static String URL_TEMP = "C:\\Users\\22282227\\java\\Medico\\Medico-temp.txt";
     private final static Path PATH_TEMP = Paths.get(URL_TEMP);
+    
+//    private final static String URL = "C:\\Users\\Millena\\Pictures\\Medico\\Medico.txt";
+//    private final static Path PATH = Paths.get(URL);
+//
+//    private final static String URL_TEMP = "C:\\Users\\Millena\\Pictures\\Medico\\Medico-temp.txt";
+//    private final static Path PATH_TEMP = Paths.get(URL_TEMP);
 
     private static ArrayList<Medico> medico = new ArrayList<>();
     public static ArrayList<Especialidade> apenasEspecilidadeDoMedico(String linha) {
