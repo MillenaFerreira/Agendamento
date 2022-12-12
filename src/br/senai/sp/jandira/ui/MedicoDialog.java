@@ -344,11 +344,15 @@ public class MedicoDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_buttonSalvarActionPerformed
     
     //evento do button salvar
-    private ArrayList<String> pegarEspecialidades(JList<String> lista) {
+    private ArrayList<Especialidade> pegarEspecialidades(JList<String> lista) {
         int tamanho = lista.getModel().getSize();
-        ArrayList<String> listaNova = new ArrayList();
+       
+        ArrayList<Especialidade> listaNova = new ArrayList();
+        
         for (int i = 0; i < tamanho; i++) {
-            listaNova.add(lista.getModel().getElementAt(i));
+            int codigo = Integer.valueOf(lista.getModel().getElementAt(i).substring(0, 3));// 100 - Cardiologia
+            Especialidade e = EspecialidadeDAO.getEspecialidade(codigo);
+            listaNova.add(e);
         }
         return listaNova;
     }
