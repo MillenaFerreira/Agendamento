@@ -352,10 +352,27 @@ public class MedicoDialog extends javax.swing.JDialog {
         for (int i = 0; i < tamanho; i++) {
             int codigo = Integer.valueOf(lista.getModel().getElementAt(i).substring(0, 3));// 100 - Cardiologia
             Especialidade e = EspecialidadeDAO.getEspecialidade(codigo);
+            
             listaNova.add(e);
+            
         }
         return listaNova;
     }
+    
+    //evento do button editar
+    private ArrayList<Especialidade> pegarEspecialidadesDoMedico(JList<String> lista2) {
+        
+        
+        if(pegarEspecialidadesDoMedico(lista2) == pegarEspecialidades(lista2).add(e)){
+            
+        }
+        ArrayList<Especialidade> listaNova = new ArrayList();
+        
+        Especialidade e = EspecialidadeDAO.getEspecialidade(codigo);
+        
+    }
+    
+    
     
     private void adicionar(){
         Medico novoMedico = new Medico();
@@ -366,7 +383,7 @@ public class MedicoDialog extends javax.swing.JDialog {
         novoMedico.setDataDeNascimento(LocalDate.parse(
                 formattedTextFieldDataDeNascimento.getText(), 
                 DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-        novoMedico.setEspecialidades(pegarEspecialidades(listListaDeEspecialidade));
+        novoMedico.setEspecialidades(pegarEspecialidades(listEspecialidadesDoMedico));
         
         MedicoDAO.gravar(novoMedico);
         
@@ -388,7 +405,7 @@ public class MedicoDialog extends javax.swing.JDialog {
         medico.setDataDeNascimento(LocalDate.parse(
                 formattedTextFieldDataDeNascimento.getText(), 
                 DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-        medico.setEspecialidades(pegarEspecialidades(listEspecialidadesDoMedico));
+        medico.setEspecialidades(pegarEspecialidadesDoMedico(listEspecialidadesDoMedico));
         
         MedicoDAO.atualizar(medico);
         
