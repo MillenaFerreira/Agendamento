@@ -215,8 +215,7 @@ public class EspecialidadeDAO {
     //armazenando os dados para usar no Jlist do Medico
     public static DefaultListModel<String> getListaEspecialidade() {
         DefaultListModel<String> listaEspecialidade = new DefaultListModel<>();
-        
-        
+         
         
         for(Especialidade especialidade : especialidades){
             listaEspecialidade.addElement(especialidade.getCodigo() 
